@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reg error user</title>
+</head>
+<body>
+<h1>Произошла ошибка</h1>
+<p th:text="${error_message}" class="error">Ошибка</p>
+<a th:href="@{/registration}">Регистрация</a>
+</body>
+</html>

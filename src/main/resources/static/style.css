@@ -1,0 +1,56 @@
+.error {
+    color: red;
+}
+
+.wrapper {
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 1000px;
+}
+
+.header {
+    height: 50px;
+    background-color: cadetblue;
+    align-items: center;
+    vertical-align: center;
+    display: flex;
+}
+
+.categories {
+    width: 200px;
+    height: 800px;
+    background-color: darkseagreen;
+    float: left;
+}
+
+.products {
+    width: 600px;
+    height: 800px;
+    background-color: aliceblue;
+    margin-left: 210px;
+}
+
+.product_tile {
+    width: 180px;
+    height: 180px;
+    background-color: azure;
+    float: left;
+}
+
+.content {
+    height: 800px;
+
+}
+
+.img_preview {
+    height: 80px;
+    width: 80px;
+}
+
+.main_header {
+    margin-right: 20px;
+}
+
+
+
+

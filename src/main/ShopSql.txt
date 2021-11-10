@@ -5,8 +5,6 @@
 Предусмотрена мультигатегорийность товаров. В поле с картинкой в товаре будет храниться ссылка на картинку.
 
 
-
-
 CREATE SCHEMA shop;
 CREATE TABLE shop.users (id serial, username varchar(100) NOT NULL, password varchar(250) NOT NULL, firstname varchar(100), lastname varchar(100), email varchar(100) NOT NULL,  PRIMARY KEY (id));
 
@@ -22,23 +20,37 @@ CREATE TABLE shop.user_roles (id serial, user_id bigint NOT NULL REFERENCES shop
 
 INSERT INTO shop.user_roles (user_id, role_id) VALUES (1, 1);
 
-Не реализовано в джаве.
 
 CREATE TABLE shop.products (id serial, name varchar(100), price decimal, pic varchar(250), short_description varchar(2000), PRIMARY KEY (id));
 
+INSERT INTO shop.products (name, price, pic, short_description) VALUES ('Телевизор', 10.5, '/img/tv.jpg', 'описание');
+INSERT INTO shop.products (name, price, pic, short_description) VALUES ('Компьютер', 30.5, '/img/pc.jpg', 'описание');
+INSERT INTO shop.products (name, price, pic, short_description) VALUES ('Холодильник', 20.5, '/img/fridge.jpg', 'описание');
+
+
 CREATE TABLE shop.categories (id serial, name varchar(100), PRIMARY KEY (id));
 
+INSERT INTO shop.categories (name) VALUES ('Телевизоры');
+INSERT INTO shop.categories (name) VALUES ('Компьютеры');
+INSERT INTO shop.categories (name) VALUES ('Холодильники');
+
+
 CREATE TABLE shop.product_categories (id serial, product_id bigint REFERENCES shop.products(id), category_id bigint REFERENCES shop.categories(id));
-
-CREATE TABLE shop.characteristics(id serial, name varchar(100), PRIMARY KEY (id));
-
-CREATE TABLE shop.pruduct_characteristics(id serial, product_id bigint REFERENCES shop.products(id), characteristic_id bigint REFERENCES shop.characteristics(id));
-
-CREATE TABLE shop.properties(id serial, ch_value varchar(100), ch_id bigint REFERENCES shop.characteristics(id), PRIMARY KEY (id));
 
 CREATE TABLE shop.carts(id serial, user_id bigint REFERENCES shop.users(id), PRIMARY KEY (id));
 
 CREATE TABLE shop.cart_products(id serial, cart_id bigint REFERENCES shop.carts(id), product_id bigint REFERENCES shop.products(id));
+
+
+*****Не реализовано в джаве.*****
+
+CREATE TABLE shop.characteristics(id serial, name varchar(100), PRIMARY KEY (id));
+
+CREATE TABLE shop.product_characteristics(id serial, product_id bigint REFERENCES shop.products(id), characteristic_id bigint REFERENCES shop.characteristics(id));
+
+CREATE TABLE shop.properties(id serial, ch_value varchar(100), ch_id bigint REFERENCES shop.characteristics(id), PRIMARY KEY (id));
+
+
 
 
 
