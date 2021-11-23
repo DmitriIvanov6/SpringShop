@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://gb.ru/web">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:getProductRequest>
+            <gs:name>productList</gs:name>
+        </gs:getProductRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
